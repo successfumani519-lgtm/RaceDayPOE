@@ -1,0 +1,8 @@
+-- Participants 
+
+CREATE TABLE Participant ( ParticipantId INT IDENTITY(1,1) NOT NULL,
+UserId INT NOT NULL,
+DateOfBirth DATE NOT NULL,
+Gender VARCHAR(10) NOT NULL, 
+CONSTRAINT PK_Participant PRIMARY KEY (ParticipantId),
+CONSTRAINT FK_Participant_User FOREIGN KEY (UserId) REFERENCES User ON DELETE CASCADE ); 
