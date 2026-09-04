@@ -1,0 +1,11 @@
+ -- Events  
+
+CREATE TABLE Event ( EventId INT IDENTITY(1,1) NOT NULL,
+OrganiserId INT NOT NULL,
+Name VARCHAR(200) NOT NULL, 
+Description VARCHAR(MAX) NULL, 
+EventDate DATETIME NOT NULL, 
+CONSTRAINT PK_Event PRIMARY KEY (EventId), 
+CONSTRAINT FK_Event_Organiser FOREIGN KEY (OrganiserId) REFERENCES Organiser(OrganiserId) ON DELETE CASCADE ); 
+
+ 
