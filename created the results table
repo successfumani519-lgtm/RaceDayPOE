@@ -1,0 +1,15 @@
+-- Results 
+
+CREATE TABLE Result ( ResultId INT IDENTITY(1,1) NOT NULL,  
+
+EnrolmentId INT NOT NULL,  
+
+FinishTime TIME NULL,  
+
+FinishingPosition INT NULL,  
+
+CONSTRAINT PK_Result PRIMARY KEY (ResultId),  
+
+CONSTRAINT FK_Result_Enrolment FOREIGN KEY (EnrolmentId) REFERENCES Enrolment(EnrolmentId) ON DELETE CASCADE ) 
+
+ 
