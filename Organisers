@@ -1,0 +1,11 @@
+-- Organisers  
+
+CREATE TABLE Organiser 
+
+ ( OrganiserId INT IDENTITY(1,1) NOT NULL, 
+UserId INT NOT NULL,
+CompanyName VARCHAR(200) NULL, 
+ContactPhone VARCHAR(20) NOT NULL, 
+CONSTRAINT PK_Organiser PRIMARY KEY (OrganiserId),
+CONSTRAINT FK_Organiser_User FOREIGN KEY (UserId) REFERENCES User ON DELETE CASCADE ); 
+
