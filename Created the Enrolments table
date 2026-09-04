@@ -1,0 +1,21 @@
+-- Enrolments  
+
+CREATE TABLE Enrolment ( EnrolmentId INT IDENTITY(1,1) NOT NULL, 
+
+ ParticipantId INT NOT NULL, EventId INT NOT NULL, 
+
+ CategoryId INT NOT NULL,  
+
+Status VARCHAR(20) NOT NULL, CONSTRAINT PK_Enrolment PRIMARY KEY (EnrolmentId), 
+
+CONSTRAINT FK_Enrolment_Participant FOREIGN KEY (ParticipantId) REFERENCES Participant(ParticipantId) ON DELETE CASCADE,  
+
+CONSTRAINT FK_Enrolment_Event FOREIGN KEY (EventId) REFERENCES Event(EventId) ON DELETE NO ACTION,  
+
+CONSTRAINT FK_Enrolment_Category FOREIGN KEY (CategoryId) REFERENCES Category(CategoryId) ON DELETE NO ACTION, 
+
+CONSTRAINT UQ_Enrolment_Unique UNIQUE (ParticipantId, EventId, CategoryId),  
+
+CONSTRAINT CHK_Enrolment_Status CHECK (Status IN ('Registered','Confirmed','Cancelled','Completed')) ); 
+
+ 
