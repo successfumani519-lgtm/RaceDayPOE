@@ -1,0 +1,10 @@
+-- Categories  
+
+CREATE TABLE Category ( CategoryId INT IDENTITY(1,1) NOT NULL,
+EventId INT NOT NULL, 
+Name VARCHAR(100) NOT NULL,
+CategoryType VARCHAR(20) NOT NULL,
+CONSTRAINT PK_Category PRIMARY KEY (CategoryId),
+CONSTRAINT FK_Category_Event FOREIGN KEY (EventId) REFERENCES Event(EventId) ON DELETE CASCADE ); 
+
+ 
